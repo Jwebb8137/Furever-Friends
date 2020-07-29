@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furever Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Raleway&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/baa5cfa84e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <span id="nav-btn" style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
+
+    <div id="my-sidenav" class="sidenav">
+    </div>
+
+
+    <div class="video-container">
+        <video autoplay muted loop id="myVideo">
+            <source src="media/dog-vid-bg.mp4" type="video/mp4">
+        </video>
+        <div class="logo-container">
+            <img id="logo-banner" src="media/logo.png" alt="furever friends logo">
+        </div>    
+    </div>
+
+    <section class="container">  
+        <div class="banner-container mt-5">
+            <img class="banner-img" src="media/cat-image1.png" alt="funny cat image">
+        </div> 
+        <h1>Finding Furever Homes</h1>
+        <div class="text-container">
+            <p>For our furever friends, working to give those without a voice a way to speak up for themselves!</p> 
+        </div>
+        <a class="banner-btn" href="cat-search.html">Find Cats <i class="fas fa-arrow-circle-right"></i></a>
+    </section>  
+    
+    <section class="container">  
+        <div class="banner-container mt-5">
+            <img class="banner-img" src="media/dog-image1.png" alt="funny dog image">
+        </div> 
+        <h2>Purrfect Companions</h2>
+        <div class="text-container">
+            <p>Adopting a pet is so much more than that ... the joy, happiness, and adventures these amazing animals bring into our lives makes them family.</p> 
+        </div>
+        <a class="banner-btn" href="dog-search.html">Find Dogs <i class="fas fa-arrow-circle-right"></i></a>
+    </section>  
+
+    <section class="container">  
+        <h3>Did You Know?</h3>
+        <p class="text-container">There are about <b>70 million stray animals</b> living in the U.S. That evens out to about five homeless animals for every homeless person in the U.S</p>
+    </section>  
+
+    <section class="container">  
+        <div class="banner-container mt-5">
+            <img class="banner-img" src="media/cat-image2.png" alt="funny cat image">
+        </div> 
+        <h2>Make A Difference</h2>
+        <div class="text-container">
+            <p>Your donations go a long way in helping feed, shelter, and provide medical aid for these amazing animals.  </p> 
+        </div>
+        <a class="banner-btn" href="shelter-search.html">Learn More <i class="fas fa-arrow-circle-right"></i></a>
+    </section>  
+
+    <section class="container">  
+        <h3>8 to 12 Million Animals</h3>
+        <p class="text-container">That's approximately how many companion animals enter animal shelters nationwide every year and <b>5-9 million are euthanized</b>.</p>
+    </section> 
+    
+    <section class="container">  
+        <div class="banner-container mt-5">
+            <img class="banner-img" src="media/dog-image2.png" alt="funny dog image">
+        </div> 
+        <h2>Find A Shelter</h2>
+        <div class="text-container">
+            <p>Your Time Is The Most Valuable Thing You Can Give! Spending Time With Animals Is A Great Way To Give Back.</p> 
+        </div>
+        <a class="banner-btn" href="shelter-search.html">Look Nearby <i class="fas fa-arrow-circle-right"></i></a>
+    </section> 
+
+
+        <p id="js-error-message" class="error-message"></p>
+        <section id="results" class="hidden">
+          <h2><u>Search results</u></h2>
+          <ul id="results-list">
+          </ul>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>

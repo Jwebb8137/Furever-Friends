@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furever Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Raleway&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/baa5cfa84e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <span id="nav-btn" style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
+
+    <div id="my-sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Adopt <i class="fas fa-baby-carriage"></i></a>
+        <a href="#">Cats <i class="fas fa-cat"></i></a>
+        <a href="#">Dogs <i class="fas fa-dog"></i></a>
+        <a href="#">Shelters <i class="far fa-building"></i></a>
+        <a href="#">Donate <i class="fas fa-dollar-sign"></i></a>
+        <a href="#">About <i class="far fa-address-card"></i></a>
+    </div>
+
+    <section class="container">  
+        <div class="banner-container mt-5">
+            <img class="cover-img" src="media/cat-image4.png" alt="funny cat image">
+        </div> 
+        <h1>Find Shelters <i class="fas fa-home"></i></h1>
+        <div class="text-container">
+            <p>Volunteering your time and attention is one of the best ways to show your support!</p> 
+        </div>
+        <form id="shelter-form">
+            <div class="item">
+                <label for="search-zipcode">Search By Zip</label>
+                <input id="zip" type="text" name="search-zipcode" placeholder='"12345"' required>
+                <span class="helper-text">(Enter 5 digit Zip Code)</span>
+            </div>
+            <div class="item">
+                <label for="distance">Distance of Search</label>
+                <input id="distance" type="number" name="distance" value="50">
+                <span class="helper-text">(Miles)</span>
+            </div>
+            <div class="item">
+                <label for="max-results">Number of Results</label>
+                <input id="max-results" type="number" name="max-results" value="10">
+            </div>
+            <button type="submit" class="banner-btn" name="Search" value="Search">Search <i class="fas fa-arrow-circle-right"></i></button>
+        </form>    
+        <!-- <a class="banner-btn" href="#">Find Cats <i class="fas fa-arrow-circle-right"></i></a> -->
+    </section>  
+    
+    <p id="js-error-message" class="error-message"></p>
+    <section id="results" class="hidden">
+        <h2><u>Search results</u></h2>
+        <ul class="results-list">
+        </ul>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
