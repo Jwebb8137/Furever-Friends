@@ -1,26 +1,147 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <div id="ytplayer"></div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script>
+    var GoogleAuth;
+    var SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
+    function handleClientLoad() {
+        // Load the API's client and auth2 modules.
+        // Call the initClient function after the modules load.
+        gapi.load('client:auth2', initClient);
+    }
 
-    <script>
-        $(document).ready(function() {
-        $.get(
-            "https://www.googleapis.com/youtube/v3/search",{
-            part : 'snippet', 
-            channelId : 'UCRayEAEods_IjRmsYObAtTw',
-            type : 'video',
-            key: 'AIzaSyA17XNrUdqqpPEkC68GIejvonHvQwOSr3I'},
-            function(data) {
-                $.each( data.items, function( i, item ) {
-                console.log(item);
-                })
-            }
-        );
+    function initClient() {
+        // Retrieve the discovery document for version 3 of YouTube Data API.
+        // In practice, your app can retrieve one or more discovery documents.
+        var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest';
+
+        // Initialize the gapi.client object, which app uses to make API requests.
+        // Get API key and client ID from API Console.
+        // 'scope' field specifies space-delimited list of access scopes.
+        gapi.client.init({
+            'apiKey': 'AIzaSyA17XNrUdqqpPEkC68GIejvonHvQwOSr3I',
+            'discoveryDocs': [discoveryUrl],
+            'clientId': '1040386965383-p2tinnuktu5sl34chbjdbueerg6pq5v3.apps.googleusercontent.com',
+            'scope': SCOPE
+        }).then(function () {
+            GoogleAuth = gapi.auth2.getAuthInstance();
+
+            // Listen for sign-in state changes.
+            GoogleAuth.isSignedIn.listen(updateSigninStatus);
+
+            // Handle initial sign-in state. (Determine if user is already signed in.)
+            var user = GoogleAuth.currentUser.get();
+            setSigninStatus();
+
+            // Call handleAuthClick function when user clicks on
+            //      "Sign In" button.
+            $('#sign-in-or-out-button').click(function() {
+                handleAuthClick();
+            }); 
         });
-    </script>
+    }
 
+    function handleAuthClick() {
+        if (GoogleAuth.isSignedIn.get()) {
+            // User is authorized and has clicked 'Sign out' button.
+            GoogleAuth.signOut();
+        } else {
+            // User is not signed in. Start Google auth flow.
+            GoogleAuth.signIn();
+        }
+    }
 
-  </body>
-</html>
+    function setSigninStatus(isSignedIn) {
+        var user = GoogleAuth.currentUser.get();
+        var isAuthorized = user.hasGrantedScopes(SCOPE);
+        if (isAuthorized) {
+            $('#sign-in-or-out-button').html('Sign out');
+        } else {
+            $('#sign-in-or-out-button').html('Sign In');
+        }
+    }
+
+    function updateSigninStatus(isSignedIn) {
+        setSigninStatus();
+    }
+
+    function get_subscriptions() {
+    var rq = {
+        part: 'id,contentDetails,subscriberSnippet,snippet',
+        mine: true,
+        maxResults: 50
+    };
+    
+    var request = gapi.client.youtube.subscriptions.list(rq);
+    
+    request.execute(function(response) {
+        console.log(response.items);
+    });
+
+    function get_subscriptions(token) {
+    var rq = {
+        part: 'id,contentDetails,subscriberSnippet,snippet',
+        mine: true,
+        maxResults: 50
+    };
+    if (token) { // If we got a token from previous call
+        rq.pageToken = token; // .. attach it to the new request
+    }
+    var request = gapi.client.youtube.subscriptions.list(rq);
+    
+    request.execute(function(response) {
+        console.log(response.items);
+        
+        var next = response.nextPageToken; // get token for next page
+        if (next) { // if has next
+            get_subscriptions(next); // recurse with the new token
+        }
+    });
+
+    for (var i = 0; i < response.items.length; i++) {
+        var itm = response.items[i];
+        var cid = itm.snippet.resourceId.channelId;
+        get_channel(cid);
+        }
+    }
+    function get_channel(cid) {
+    var request = gapi.client.youtube.channels.list({
+        part: 'snippet,contentDetails,statistics',
+        id: cid
+    });
+    request.execute(function(response) {
+        var channels = response.items;
+        get_upload(channels[0].contentDetails.relatedPlaylists.uploads);
+    });
+
+    function get_uploads(pid) {
+    var rq = {
+        part: 'snippet,contentDetails',
+        playlistId: pid,
+        maxResults: 50
+    };
+    
+    var request = gapi.client.youtube.playlistItems.list(rq);
+    
+    request.execute(function(response) {
+        var itm = response.items[0];
+        // Prepare clickable HTML snippet:			
+        var thumb = itm.snippet.thumbnails.medium;
+        var link = "<a href='https://www.youtube.com/watch?v=" 
+            + itm.snippet.resourceId.videoId + "' target='_blank'>";
+        var img = "<img src='" + thumb.url + "' width=" + thumb.width 
+            + " height=" + thumb.height + ">";
+        var end_link = "</a>";
+        // Add it to results div content:
+        $('#results').append(link + img + end_link);
+    });
+}
+}
+}
+</script>
+
+<button id="sign-in-or-out-button">Sign In</button>
+<div id="results"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" 
+    onload="this.onload=function(){};handleClientLoad()" 
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
