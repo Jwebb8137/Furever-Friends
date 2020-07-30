@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="ytplayer"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+        $.get(
+            "https://www.googleapis.com/youtube/v3/search",{
+            part : 'snippet', 
+            channelId : 'UCRayEAEods_IjRmsYObAtTw',
+            type : 'video',
+            key: 'AIzaSyA17XNrUdqqpPEkC68GIejvonHvQwOSr3I'},
+            function(data) {
+                $.each( data.items, function( i, item ) {
+                console.log(item);
+                })
+            }
+        );
+        });
+    </script>
+
+
+  </body>
+</html>

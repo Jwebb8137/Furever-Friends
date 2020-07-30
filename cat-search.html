@@ -43,19 +43,23 @@
                     <label for="type"></label>
                     <input class="animal-type" type="text" name="type" value="Cat">
                 </div>
-                <button type="submit" class="banner-btn" name="Search" value="Search">Search <i class="fas fa-arrow-circle-right"></i></button>
+                <button id="search-submit" type="submit" class="banner-btn" name="Search" value="Search">Search <i class="fas fa-arrow-circle-right"></i></button>
             </form>    
         </section>  
         <!----------- Error handle ----------------->      
         <p id="js-error-message" class="error-message"></p>
         <!-------------- Results ----------------->
+        <span id="results-target"></span>
         <section id="results" class="hidden">
             <h2><i class="fas fa-heartbeat"></i> Search Results <i class="fas fa-heartbeat"></i></h2>
             <p class="search-sub">Here Is Who We Found!</p>
             <ul class="results-list">
             </ul>
+            <button id="more-results" class="get-more-btn" type="button">More Results <i class="fas fa-arrow-circle-right"></i></button>
         </section>
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-        <script src="index.js"></script>
+        <script src="js/animal-search.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/add-animal-results.js"></script>
     </body>
 </html>

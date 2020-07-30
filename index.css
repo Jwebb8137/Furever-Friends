@@ -345,3 +345,13 @@ label {
   margin-bottom: 7px;
 }
 
+#more-results {
+  background: #fff;
+  border: 2px solid #e44959;
+  border-radius: 10px;
+  color: #e44959;
+  font-size: 24px;
+  margin: 15px auto 40px;  
+  padding: 10px 15px;
+}
+
