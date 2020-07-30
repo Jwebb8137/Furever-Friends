@@ -30,6 +30,8 @@
     })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
+                console.log(result.items[0].snippet.title);
+                console.log(Result.items[0].snippet.title)
                 console.log("Response", response);
               },
               function(err) { console.error("Execute error", err); });
