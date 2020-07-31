@@ -82,7 +82,7 @@ function displayShelters(responseJson) {
         }
 
         $('.results-list').append(
-        `<div class="item">
+        `<div class="item item-results">
             <li>
             <img class="results-img" src="${photoUrl}" alt="cat image" width="90%">
             <div class="img-profile">

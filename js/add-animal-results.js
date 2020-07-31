@@ -91,7 +91,7 @@ function addMoreResults() {
       (responseJson.animals[i].url !== null) ? petUrl = responseJson.animals[i].name: petUrl;
       
       $('.results-list').append(
-        `<div class="item">
+        `<div class="item item-results">
           <li>
             <img class="results-img" src="${petPhotoUrl}" alt="cat image" width="90%">
             <div class="img-profile">
@@ -106,7 +106,7 @@ function addMoreResults() {
             </div>
           </li>
         </div>
-        <i class="far fa-heart"></i>`
+        `
       )};
   };  
 
@@ -116,6 +116,6 @@ $("#more-results").click(function() {
   }, 2500);
 });
 
-  $(addMoreResults);
+$(addMoreResults);
 
   

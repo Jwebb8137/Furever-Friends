@@ -11,6 +11,8 @@
 </head>
 <body>
 
+    <header class="header">
+	</header>
     <span id="nav-btn" style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
 
     <div id="my-sidenav" class="sidenav">
@@ -50,15 +52,21 @@
         </form>    
     </section>    
     <p id="js-error-message" class="error-message"></p>
+
+    <span id="results-target"></span>
     <section id="results" class="hidden">
-        <h2><u>Search results</u></h2>
-        <ul class="results-list">
+        <h2><i class="fas fa-heartbeat"></i> Search Results <i class="fas fa-heartbeat"></i></h2>
+        <p class="search-sub">Here Is Who We Found!</p>
+        <ul class="results-list group">
         </ul>
         <button id="more-results" class="get-more-btn" type="button">More Results <i class="fas fa-arrow-circle-right"></i></button>
     </section>
+    
+    <footer class="footer-distributed">
+    </footer>    
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="js/shelter-search.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/more-results.js"></script>
+    <script src="js/add-shelter-results.js"></script>
 </body>
 </html>

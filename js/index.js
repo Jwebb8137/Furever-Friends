@@ -7,8 +7,35 @@ $('#my-sidenav').html(`
   <a href="cat-search.html">Cats <i class="fas fa-cat"></i></a>
   <a href="dog-search.html">Dogs <i class="fas fa-dog"></i></a>
   <a href="shelter-search.html">Shelters <i class="far fa-building"></i></a>
-  <a href="#">Donate <i class="fas fa-dollar-sign"></i></a>
+  <a href="featured-pets.html">Featured <i class="far fa-star"></i></a>
   <a href="#">About <i class="far fa-address-card"></i></a>
+`);
+
+//Html for Header
+$('.header').html(`
+  <h1 class="logo"><a href="#"><img src="media/logo.png" width="150px"></a></h1>
+  <ul class="main-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cat-search.html">Cats</a></li>
+      <li><a href="dog-search.html">Dogs</a></li>
+      <li><a href="shelter-search.html">Shelters</a></li>
+      <li><a href="featured-pets.html">Featured</a></li>
+  </ul>
+`);
+
+//Html for footer
+$('.footer-distributed').html(`
+  <div class="footer-left">
+    <p class="footer-links">
+        <a class="link-1" href="index-html">Home</a>
+        <a href="cat-search.html">Cats</a>
+        <a href="dog-search.html">Dogs</a>
+        <a href="shelter-search.html">Shelters</a>
+        <a href="featured-pets.html">Featured</a>
+        <img id="footer-logo" src="media/logo.png" alt="logo" width="200px">
+    </p>
+    <p>Furever Friends &copy; 2020</p>
+  </div>
 `);
 
 function openNav() {
