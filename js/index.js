@@ -8,7 +8,6 @@ $('#my-sidenav').html(`
   <a href="dog-search.html">Dogs <i class="fas fa-dog"></i></a>
   <a href="shelter-search.html">Shelters <i class="far fa-building"></i></a>
   <a href="featured-pets.html">Featured <i class="far fa-star"></i></a>
-  <a href="#">About <i class="far fa-address-card"></i></a>
 `);
 
 // Html for Header
