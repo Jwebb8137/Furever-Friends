@@ -1,6 +1,6 @@
 'use strict';
 
-//Html for responsive site navigation menu
+// Html for responsive site navigation menu
 $('#my-sidenav').html(`
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index.html">Home <i class="fas fa-home"></i></a>
@@ -11,9 +11,9 @@ $('#my-sidenav').html(`
   <a href="#">About <i class="far fa-address-card"></i></a>
 `);
 
-//Html for Header
+// Html for Header
 $('.header').html(`
-  <h1 class="logo"><a href="#"><img src="media/logo.png" width="150px"></a></h1>
+  <h1 class="logo"><a href="index.html"><img src="media/logo.png" width="150px"></a></h1>
   <ul class="main-nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="cat-search.html">Cats</a></li>
@@ -23,7 +23,7 @@ $('.header').html(`
   </ul>
 `);
 
-//Html for footer
+// Html for footer
 $('.footer-distributed').html(`
   <div class="footer-left">
     <p class="footer-links">
@@ -38,6 +38,7 @@ $('.footer-distributed').html(`
   </div>
 `);
 
+// Mobile-nav functionality
 function openNav() {
   $("#my-sidenav").css("width","250px");
 }
@@ -49,5 +50,44 @@ function closeNav() {
 $("body").mouseup(function() {
   $("#my-sidenav").css("width","0");
 });
+
+
+// This code loads the IFrame Player API code asynchronously.
+let tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+let firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// This function creates an <iframe> (and YouTube player) after the API code downloads.
+let player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+      videoId: 'ieHv-6UUftc',
+      events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+      }
+  });
+}
+
+// The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
+
+let done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    setTimeout(stopVideo, 0);
+    done = true;
+  }
+}
+function stopVideo() {
+  player.stopVideo();
+}
+
+
+
+
 
 

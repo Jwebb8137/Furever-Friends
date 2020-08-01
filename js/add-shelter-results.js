@@ -1,6 +1,26 @@
 // add more results //
 let page = 2;
 
+function addedShelterHtml() {
+  $('.results-list').append(
+    `<div class="item item-results">
+        <li>
+        <img class="results-img" src="${photoUrl}" alt="cat image" width="90%">
+        <div class="img-profile">
+            <i class="fas fa-paw fa-paw-profile"></i>
+            <h3 class="profile-name">${responseJson.organizations[i].name}</h3>
+            <div class="profile-text">
+            <p><i class="fas fa-map-marker-alt mr-5"></i> ${shelterAddress}</p>
+            <p>${responseJson.organizations[i].address.city}, ${responseJson.organizations[i].address.state}</p>
+            <p><i class="fas fa-phone-alt mr-5"></i>  ${shelterPhone}</p>
+            </div>
+            <a class="profile-link" href="${responseJson.organizations[i].url}">Find Out More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        </li>
+    </div>`
+    )
+};
+
 function addMoreResults() {
   $('#more-results').click(event => {
     event.preventDefault();
@@ -86,23 +106,8 @@ function addResults(responseJson) {
       shelterPhone = responseJson.organizations[i].phone;
       }
 
-      $('.results-list').append(
-      `<div class="item item-results">
-          <li>
-          <img class="results-img" src="${photoUrl}" alt="cat image" width="90%">
-          <div class="img-profile">
-              <i class="fas fa-paw fa-paw-profile"></i>
-              <h3 class="profile-name">${responseJson.organizations[i].name}</h3>
-              <div class="profile-text">
-              <p><i class="fas fa-map-marker-alt mr-5"></i> ${shelterAddress}</p>
-              <p>${responseJson.organizations[i].address.city}, ${responseJson.organizations[i].address.state}</p>
-              <p><i class="fas fa-phone-alt mr-5"></i>  ${shelterPhone}</p>
-              </div>
-              <a class="profile-link" href="${responseJson.organizations[i].url}">Find Out More <i class="fas fa-arrow-right"></i></a>
-          </div>
-          </li>
-      </div>`
-      )};
+      addedShelterHtml();
+    };
   $('#results').removeClass('hidden');  
 };  
 

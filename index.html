@@ -1,153 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furever Friends</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Raleway&display=swap" rel="stylesheet">    
-    <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/baa5cfa84e.js" crossorigin="anonymous"></script>
-</head>
-<body>
-
-    <header class="header">
-
-	</header>
-
-    <span id="nav-btn" style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
-
-    <div id="my-sidenav" class="sidenav">
-    </div>
-
-
-    <div class="video-container">
-        <video autoplay muted loop id="myVideo">
-            <source src="media/dog-vid-bg.mp4" type="video/mp4">
-        </video>
-        <div class="logo-container">
-            <img id="logo-banner" src="media/logo.png" alt="furever friends logo">
-        </div>    
-    </div>
-
-    <section class="container">  
-        <h2>Adopt, Don't Shop!  <i class="fas fa-paw"></i></h2>
-        <div class="text-container">
-            <p>Helping to spread an <u>"Adopt, Don't Shop"</u> mentality we aim to give these amazing animals a second chance & the life they deserver</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Furever Friends</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Raleway&display=swap" rel="stylesheet">    
+        <link rel="stylesheet" href="index.css">
+        <script src="https://kit.fontawesome.com/baa5cfa84e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header class="header"></header>
+        <span id="nav-btn" style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
+        <div id="my-sidenav" class="sidenav"></div>
+        <div class="video-container">
+            <video autoplay muted loop id="myVideo">
+                <source src="media/dog-vid-bg.mp4" type="video/mp4">
+            </video>
+            <div class="logo-container">
+                <img id="logo-banner" src="media/logo.png" alt="furever friends logo">
+            </div>    
         </div>
-    </section>  
-
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
-
-    <script>
-        // 2. This code loads the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
-
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // 3. This function creates an <iframe> (and YouTube player)
-        //    after the API code downloads.
-        var player;
-        function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-            videoId: 'ieHv-6UUftc',
-            events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-            }
-        });
-        }
-
-        // 4. The API will call this function when the video player is ready.
-        function onPlayerReady(event) {
-        event.target.playVideo();
-        }
-
-        // 5. The API calls this function when the player's state changes.
-        //    The function indicates that when playing a video (state=1),
-        //    the player should play for six seconds and then stop.
-        var done = false;
-        function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo, 0);
-            done = true;
-        }
-        }
-        function stopVideo() {
-        player.stopVideo();
-        }
-    </script>
-
-    <div class="group">
-        <section class="container"> 
-            <div class="banner-container mt-5">
-                <img class="banner-img" src="media/cat-image1.png" alt="funny cat image">
-            </div> 
-            <h2>Finding Furever Homes</h2>
+        <section class="container">  
+            <h2>Adopt, Don't Shop!  <i class="fas fa-paw"></i></h2>
             <div class="text-container">
-                <p>For our furever friends, we are working to give those without a voice a way to speak up for themselves! Bring one of these furry friends home today!</p> 
+                <p>Helping to spread an <u>"Adopt, Don't Shop"</u> mentality we aim to give these amazing animals a second chance & the life they deserve</p>
             </div>
-            <a class="banner-btn" href="cat-search.html">Find Cats <i class="fas fa-arrow-circle-right"></i></a>
         </section>  
-        
-        <section class="container">  
-            <div class="banner-container mt-5">
-                <img class="banner-img" src="media/dog-image1.png" alt="funny dog image">
-            </div> 
-            <h2>Purrfect Companions</h2>
-            <div class="text-container">
-                <p>Adopting a pet is so much more than that ... the joy, happiness, and adventures these amazing animals bring into our lives makes them family.</p> 
-            </div>
-            <a class="banner-btn" href="dog-search.html">Find Dogs <i class="fas fa-arrow-circle-right"></i></a>
-        </section>   
-    </div>
-
-    <section class="container mt-0"> 
-            <h2>Did You Know?</h2>
-            <p class="p-container">There are about <b>70 million stray animals</b> living in the U.S. That evens out to about five homeless animals for every homeless person in the U.S</p>
-    </section> 
-
-    <div class="group">
-        <section class="container">  
-            <div class="banner-container mt-5">
-                <img class="banner-img" src="media/cat-image2.png" alt="funny cat image">
-            </div> 
-            <h2>Make A Difference</h2>
-            <div class="text-container">
-                <p>Your donations go a long way in helping feed, shelter, and provide medical aid for these amazing animals.  </p> 
-            </div>
-            <a class="banner-btn" href="shelter-search.html">Find Out <i class="fas fa-arrow-circle-right"></i></a>
-        </section>  
-        
-        <section class="container">  
-            <div class="banner-container mt-5">
-                <img class="banner-img" src="media/dog-image2.png" alt="funny dog image">
-            </div> 
-            <h2>Find A Shelter</h2>
-            <div class="text-container">
-                <p>Your Time Is The Most Valuable Thing You Can Give! Spending Time With Animals Is A Great Way To Give Back.</p> 
-            </div>
-            <a class="banner-btn" href="shelter-search.html">Search <i class="fas fa-arrow-circle-right"></i></a>
+        <div id="player"></div>
+        <div class="group">
+            <section class="container"> 
+                <div class="banner-container mt-5">
+                    <img class="banner-img" src="media/cat-image1.png" alt="funny cat image">
+                </div> 
+                <h2>Finding Furever Homes</h2>
+                <div class="text-container">
+                    <p>For our furever friends, we are working to give those without a voice a way to speak up for themselves! Bring one of these furry friends home today!</p> 
+                </div>
+                <a class="banner-btn" href="cat-search.html">Find Cats <i class="fas fa-arrow-circle-right"></i></a>
+            </section>          
+            <section class="container">  
+                <div class="banner-container mt-5">
+                    <img class="banner-img" src="media/dog-image1.png" alt="funny dog image">
+                </div> 
+                <h2>Purrfect Companions</h2>
+                <div class="text-container">
+                    <p>Adopting a pet is so much more than that ... the joy, happiness, and adventures these amazing animals bring into our lives makes them family.</p> 
+                </div>
+                <a class="banner-btn" href="dog-search.html">Find Dogs <i class="fas fa-arrow-circle-right"></i></a>
+            </section>   
+        </div>
+        <section class="container mt-0"> 
+                <h2>Did You Know?</h2>
+                <p class="p-container">There are about <b>70 million stray animals</b> living in the U.S. That evens out to about five homeless animals for every homeless person in the U.S</p>
         </section> 
-    </div>
-
-    <section class="container-styled">
-        <div class="banner-container mt-5">
-            <img class="feature-img" src="media/pet-feature.png" alt="funny cat image">
-        </div> 
-        <h2 class="feature-heading"><i class="fas fa-star"></i> Animal Spotlight <i class="fas fa-star"></i></h2>
-        <div class="text-container">
-            <p>Featuring Pets Of The Week! These shining stars more than deserve some added recognition. Show your love by reading more about them!</p>
+        <div class="group">
+            <section class="container">  
+                <div class="banner-container mt-5">
+                    <img class="banner-img" src="media/cat-image2.png" alt="funny cat image">
+                </div> 
+                <h2>Make A Difference</h2>
+                <div class="text-container">
+                    <p>Your donations go a long way in helping feed, shelter, and provide medical aid for these amazing animals.  </p> 
+                </div>
+                <a class="banner-btn" href="shelter-search.html">Find Out <i class="fas fa-arrow-circle-right"></i></a>
+            </section>         
+            <section class="container">  
+                <div class="banner-container mt-5">
+                    <img class="banner-img" src="media/dog-image2.png" alt="funny dog image">
+                </div> 
+                <h2>Find A Shelter</h2>
+                <div class="text-container">
+                    <p>Your time is the most valuable thing you can give! Spending time with animals is a great way to give back.</p> 
+                </div>
+                <a class="banner-btn" href="shelter-search.html">Search <i class="fas fa-arrow-circle-right"></i></a>
+            </section> 
         </div>
-        <a class="banner-btn" href="featured-pets.html">Show Me <i class="fas fa-arrow-circle-right"></i></a>
-    </section>
-    </div>
-    <footer class="footer-distributed">
-    </footer>    
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="js/index.js"></script>
-</body>
+        <section class="container-styled">
+            <div class="banner-container mt-5">
+                <img class="feature-img" src="media/pet-feature.png" alt="funny cat image">
+            </div> 
+            <h2 class="feature-heading"><i class="fas fa-star"></i> Animal Spotlight <i class="fas fa-star"></i></h2>
+            <div class="text-container">
+                <p>Featuring Pets Of The Week! These shining stars more than deserve some added recognition. Show your love by reading more about them!</p>
+            </div>
+            <a class="banner-btn" href="featured-pets.html">Show Me <i class="fas fa-arrow-circle-right"></i></a>
+        </section>
+        </div>
+        <footer class="footer-distributed"></footer>    
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="js/index.js"></script>
+    </body>
 </html>

@@ -1,4 +1,4 @@
-fetch('https://gnews.io/api/v3/search?q="{pet of the week}"&image=required&mindate=2020-07-01&articleCount=25&token=67e792384d757cf176559f869d647b25')
+fetch('https://gnews.io/api/v3/search?q="{pet of the week}"&image=required&mindate=2020-07-01&token=67e792384d757cf176559f869d647b25')
     .then(response => {
         if (response.ok) {
         return response.json();
@@ -16,8 +16,7 @@ function displayResults(responseJson) {
   // for loop
   for (let i = 0; i < responseJson.articles.length; i++) {
     $('.results-list').append(
-        `
-        <div class="item item-results">
+        `<div class="item item-results">
           <li>
             <img class="results-img" src="${responseJson.articles[i].image}" alt="animal image" width="90%">
             <div class="img-profile">
@@ -29,8 +28,7 @@ function displayResults(responseJson) {
               <a class="profile-link" href="${responseJson.articles[i].url}">Find Out More <i class="fas fa-arrow-right"></i></a>
             </div>
           </li>
-        </div>
-        `
+        </div>`
     )
   }
 }
