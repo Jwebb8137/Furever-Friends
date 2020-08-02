@@ -298,6 +298,7 @@ button:hover, #more-results:hover, .banner-btn:hover {
 }
 
 .results-list {
+  justify-content: center;
   margin-top: 0;
   padding: 0 25px 0;
 }
@@ -314,10 +315,10 @@ button:hover, #more-results:hover, .banner-btn:hover {
 }
 
 .img-profile {
-  border: 4px solid white;
+  border: 4px solid #fff;
   border-radius: 10px;
-  background:#ff8585;
-  color: #000;
+  background:#ff5c5c;
+  color: #fff;
   padding: 15px 0 5px;
   position: relative;
   bottom: 50px;
