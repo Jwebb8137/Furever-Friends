@@ -11,21 +11,31 @@ fetch('https://gnews.io/api/v3/search?q="{pet of the week}"&image=required&minda
 });
 
 function displayResults(responseJson) {
-  for (let i = 0; i < responseJson.articles.length; i++) {
-    $('.results-list').append(
+    for (let i = 0; i < responseJson.articles.length; i++) {
+
+        let photoUrl = "media/logo.png";
+        let title = "Not Specified";
+        let description = "Visit Website";
+        let url = "Not Specified";
+        (responseJson.articles[i].image !== null) ? photoUrl = responseJson.articles[i].image: photoUrl;
+        (responseJson.articles[i].title !== null) ? title = responseJson.articles[i].title: title;
+        (responseJson.articles[i].description !== null) ? description = responseJson.articles[i].description: description;
+        (responseJson.articles[i].url !== null) ? url = responseJson.articles[i].url: url;
+    
+        $('.results-list').append(
         `<div class="item item-results">
-          <li>
-            <img class="results-img" src="${responseJson.articles[i].image}" alt="animal image" width="90%">
+        <li>
+            <img class="results-img" src="${photoUrl}" alt="animal image" width="90%">
             <div class="img-profile">
-              <i class="fas fa-paw fa-paw-profile"></i>
-              <h3 class="profile-name">${responseJson.articles[i].title}</h3>
-              <div class="profile-text">
-                <p>${responseJson.articles[i].description}</p>
-              </div>
-              <a class="profile-link" href="${responseJson.articles[i].url}" target="_blank">Find Out More <i class="fas fa-arrow-right"></i></a>
+            <i class="fas fa-paw fa-paw-profile"></i>
+            <h3 class="profile-name">${title}</h3>
+            <div class="profile-text">
+                <p>${description}</p>
             </div>
-          </li>
+            <a class="profile-link" href="${url}" target="_blank">Find Out More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </li>
         </div>`
-    )
-  };
+        )
+    };
 };
