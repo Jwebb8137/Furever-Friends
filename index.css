@@ -306,6 +306,7 @@ button:hover, #more-results:hover, .banner-btn:hover {
   border: 5px solid #ff5c5c;
   border-radius: 10px 10px 0 0;
   margin: 20px auto;
+  max-width: 375px;
 }
 
 .mr-5 {
@@ -320,6 +321,8 @@ button:hover, #more-results:hover, .banner-btn:hover {
   padding: 15px 0 5px;
   position: relative;
   bottom: 50px;
+  margin: auto;
+  max-width: 400px;
 }
 
 #results-list a {
