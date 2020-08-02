@@ -279,7 +279,7 @@ a {
   cursor: pointer;
 }
 
-button:hover, #more-results:hover {
+button:hover, #more-results:hover, .banner-btn:hover {
   background: #ff8585;
   color: white;
   cursor: pointer;

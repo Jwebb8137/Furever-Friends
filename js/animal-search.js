@@ -21,13 +21,11 @@ function watchCatForm() {
 };
   
 function getAnimals(type, zip, distance, maxResults) {
-  // put your own value below!
   const apiKey = 'KDMmCz21JbuiHaR1Byz70ioQBMNqOy1Sbh8lstgYDWlMSlMjY2';
   const secret = 'yvZvirTKswWy7BHNelnesKljNOEmUof3APwZS4yd'
   const searchURL = 'https://api.petfinder.com/v2/oauth2/token';
 
   // Call the API
-  // This is a POST request, because we need the API to generate a new token for us
   fetch('https://api.petfinder.com/v2/oauth2/token', {
     method: 'POST',
     body: 'grant_type=client_credentials&client_id=' + apiKey + '&client_secret=' + secret,
@@ -35,18 +33,10 @@ function getAnimals(type, zip, distance, maxResults) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(function (resp) {
-
     // Return the response as JSON
     return resp.json();
-
   }).then(function (data) {
-
-    // Log the API data
-    console.log('token', data);
-
     // Return a second API call
-    // This one uses the token we received for authentication
-
     return fetch('https://api.petfinder.com/v2/animals?location=' + zip + '&distance=' + distance + '&type=' + type + '&status=adoptable' + '&limit=' + maxResults, {
       headers: {
         'Authorization': data.token_type + ' ' + data.access_token,
@@ -67,15 +57,8 @@ function getAnimals(type, zip, distance, maxResults) {
 }
   
   function displayResults(responseJson) {
-    // if there are previous results, remove them
-    console.log(responseJson);
     $('.results-list').empty();
-    // iterate through the items array
     for (let i = 0; i < responseJson.animals.length; i++){
-      // for each video object in the items 
-      //array, add a list item to the results 
-      //list with the video title, description,
-      //and thumbnail
 
       let petPhotoUrl = "media/logo.png";
       let defaultCatImg = "media/default-profile-cat.png";
@@ -107,7 +90,7 @@ function getAnimals(type, zip, distance, maxResults) {
                 <p>${petCity}, ${petState}</p>
                 <p><i class="fas fa-phone-alt mr-5"></i>  ${petPhone}</p>
               </div>
-              <a class="profile-link" href="${petUrl}">Find Out More <i class="fas fa-arrow-right"></i></a>
+              <a class="profile-link" href="${petUrl}" target="_blank">Find Out More <i class="fas fa-arrow-right"></i></a>
             </div>
           </li>
         </div>`

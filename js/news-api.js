@@ -11,9 +11,6 @@ fetch('https://gnews.io/api/v3/search?q="{pet of the week}"&image=required&minda
 });
 
 function displayResults(responseJson) {
-  console.log(responseJson);
-  console.log(responseJson.articles);
-  // for loop
   for (let i = 0; i < responseJson.articles.length; i++) {
     $('.results-list').append(
         `<div class="item item-results">
@@ -25,10 +22,10 @@ function displayResults(responseJson) {
               <div class="profile-text">
                 <p>${responseJson.articles[i].description}</p>
               </div>
-              <a class="profile-link" href="${responseJson.articles[i].url}">Find Out More <i class="fas fa-arrow-right"></i></a>
+              <a class="profile-link" href="${responseJson.articles[i].url}" target="_blank">Find Out More <i class="fas fa-arrow-right"></i></a>
             </div>
           </li>
         </div>`
     )
-  }
-}
+  };
+};

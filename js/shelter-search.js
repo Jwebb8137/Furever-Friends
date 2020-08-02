@@ -9,13 +9,11 @@ function watchShelterForm() {
 };
 
 function getShelters(zip, distance, maxResults) {
-  // put your own value below!
   const apiKey = 'KDMmCz21JbuiHaR1Byz70ioQBMNqOy1Sbh8lstgYDWlMSlMjY2';
   const secret = 'yvZvirTKswWy7BHNelnesKljNOEmUof3APwZS4yd'
   const searchURL = 'https://api.petfinder.com/v2/oauth2/token';
 
   // Call the API
-  // This is a POST request, because we need the API to generate a new token for us
   fetch('https://api.petfinder.com/v2/oauth2/token', {
     method: 'POST',
     body: 'grant_type=client_credentials&client_id=' + apiKey + '&client_secret=' + secret,
@@ -23,27 +21,17 @@ function getShelters(zip, distance, maxResults) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(function (resp) {
-
     // Return the response as JSON
     return resp.json();
-
   }).then(function (data) {
-
-    // Log the API data
-    console.log('token', data);
-
     // Return a second API call
-    // This one uses the token we received for authentication
-
     return fetch('https://api.petfinder.com/v2/organizations?location=' + zip + '&distance=' + distance + '&limit=' + maxResults, {
       headers: {
         'Authorization': data.token_type + ' ' + data.access_token,
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     });
-
   })
-
   .then(response => {
     if (response.ok) {
       return response.json();
@@ -57,10 +45,7 @@ function getShelters(zip, distance, maxResults) {
 }
   
 function displayShelters(responseJson) {
-  // if there are previous results, remove them
-  console.log(responseJson);
   $('.results-list').empty();
-  // iterate through the items array
   for (let i = 0; i < responseJson.organizations.length; i++){
   
       let photoUrl = "media/logo.png";
@@ -82,7 +67,7 @@ function displayShelters(responseJson) {
               <p>${responseJson.organizations[i].address.city}, ${responseJson.organizations[i].address.state}</p>
               <p><i class="fas fa-phone-alt mr-5"></i>  ${shelterPhone}</p>
               </div>
-              <a class="profile-link" href="${responseJson.organizations[i].url}">Find Out More <i class="fas fa-arrow-right"></i></a>
+              <a class="profile-link" href="${responseJson.organizations[i].url}" target="_blank">Find Out More <i class="fas fa-arrow-right"></i></a>
           </div>
           </li>
       </div>`
