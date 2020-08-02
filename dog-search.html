@@ -12,45 +12,47 @@
     <body>
         <header class="header"></header>
         <span id="nav-btn" style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-bars"></i></span>
-        <div id="my-sidenav" class="sidenav"></div>
-        <section class="container">  
-            <div class="banner-container mt-5">
-                <img class="cover-img" src="media/dog-image3.png" alt="funny dog image">
-            </div> 
-            <h1>Find Nearby Dogs <i class="fas fa-dog"></i></h1>
-            <div class="text-container">
-                <p>Dogs are that one best friend you couldn't live without. A true companion & always willing to lend a paw.</p> 
-            </div>      
-            <form id="dog-form" class="js-form">
-                <div class="item">
-                    <label for="search-zipcode">Search By Zip</label>
-                    <input id="zip" type="text" name="search-zipcode" placeholder='"12345"' required>
-                    <span class="helper-text">(Enter 5 digit Zip Code)</span>
-                </div>
-                <div class="item">
-                    <label for="distance">Distance of Search</label>
-                    <input id="distance" type="number" name="distance" value="50">
-                    <span class="helper-text">(Miles)</span>
-                </div>
-                <div class="item">
-                    <label for="max-results">Number of Results</label>
-                    <input id="max-results" type="number" name="max-results" value="10">
-                </div>
-                <div class="item hidden">
-                    <label for="type"></label>
-                    <input class="animal-type" type="text" name="type" value="Dog">
-                </div>
-                <button id="search-submit" type="submit" class="banner-btn" name="Search-Dogs" value="Search-Dogs">Search <i class="fas fa-arrow-circle-right"></i></button>
-            </form>    
-        </section>  
-        <p id="js-error-message" class="error-message"></p>
-        <span id="results-target"></span>
-        <section id="results" class="hidden">
-            <h2><i class="fas fa-heartbeat"></i> Search Results <i class="fas fa-heartbeat"></i></h2>
-            <p class="search-sub">Here Is Who We Found!</p>
-            <ul class="results-list group"></ul>
-            <button id="more-results" class="get-more-btn" type="button">More Results <i class="fas fa-arrow-circle-right"></i></button>
-        </section>
+        <nav id="my-sidenav" class="sidenav"></nav>
+        <main>
+            <section class="container">  
+                <div class="banner-container mt-5">
+                    <img class="cover-img" src="media/dog-image3.png" alt="funny dog image">
+                </div> 
+                <h1>Find Nearby Dogs <i class="fas fa-dog"></i></h1>
+                <div class="text-container">
+                    <p>Dogs are that one best friend you couldn't live without. A true companion & always willing to lend a paw.</p> 
+                </div>      
+                <form id="dog-form" class="js-form">
+                    <div class="item">
+                        <label for="zip">Search By Zip</label>
+                        <input id="zip" type="text" name="search-zipcode" placeholder='"12345"' required>
+                        <span class="helper-text">(Enter 5 digit Zip Code)</span>
+                    </div>
+                    <div class="item">
+                        <label for="distance">Distance of Search</label>
+                        <input id="distance" type="number" name="distance" value="50">
+                        <span class="helper-text">(Miles)</span>
+                    </div>
+                    <div class="item">
+                        <label for="max-results">Number of Results</label>
+                        <input id="max-results" type="number" name="max-results" value="10">
+                    </div>
+                    <div class="item hidden">
+                        <label for="type"></label>
+                        <input id="type" class="animal-type" type="text" name="type" value="Dog">
+                    </div>
+                    <button id="search-submit" type="submit" class="banner-btn" name="Search-Dogs" value="Search-Dogs">Search <i class="fas fa-arrow-circle-right"></i></button>
+                </form>    
+            </section>  
+            <p id="js-error-message" class="error-message"></p>
+            <span id="results-target"></span>
+            <section id="results" class="hidden">
+                <h2><i class="fas fa-heartbeat"></i> Search Results <i class="fas fa-heartbeat"></i></h2>
+                <p class="search-sub">Here Is Who We Found!</p>
+                <ul class="results-list group"></ul>
+                <button id="more-results" class="get-more-btn" type="button">More Results <i class="fas fa-arrow-circle-right"></i></button>
+            </section>
+        </main>
         <footer class="footer-distributed"></footer>        
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="js/animal-search.js"></script>
