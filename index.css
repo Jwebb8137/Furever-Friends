@@ -70,8 +70,9 @@ body {
 }
 
 .main-nav a {
-	color: #e44959;
-	font-size: .99em;
+	color: #de3b45;
+  font-size: .99em;
+  font-weight: bold;
 }
 
 .main-nav a:hover {
