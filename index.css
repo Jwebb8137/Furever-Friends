@@ -70,13 +70,13 @@ body {
 }
 
 .main-nav a {
-	color: #de3b45;
+	color: #000;
   font-size: .99em;
   font-weight: bold;
 }
 
 .main-nav a:hover {
-  color: #000;
+  color: #e44959;
   text-decoration: underline;
   transform: scale(1.05);
 }
