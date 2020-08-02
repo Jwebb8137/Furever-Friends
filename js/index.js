@@ -12,7 +12,7 @@ $('#my-sidenav').html(`
 
 // Html for Header
 $('.header').html(`
-  <h1 class="logo"><a href="index.html"><img src="media/logo.png" width="150px"></a></h1>
+  <span class="logo"><a href="index.html"><img src="media/logo.png" alt="Furever Friends Logo" width="150px"></a></span>
   <ul class="main-nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="cat-search.html">Cats</a></li>

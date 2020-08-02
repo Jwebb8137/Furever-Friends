@@ -25,7 +25,7 @@ function displayResults(responseJson) {
         $('.results-list').append(
         `<div class="item item-results">
         <li>
-            <img class="results-img" src="${photoUrl}" alt="animal image" width="90%">
+            <img class="results-img" src="${photoUrl}" alt="animal image ${i}" width="90%">
             <div class="img-profile">
             <i class="fas fa-paw fa-paw-profile"></i>
             <h3 class="profile-name">${title}</h3>
