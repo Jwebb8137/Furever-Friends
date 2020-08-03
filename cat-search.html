@@ -23,25 +23,28 @@
                     <p>Cats are incredibly unique and full of adventure. Start looking for one today!</p> 
                 </div>      
                 <form id="cat-form" class="js-form">
-                    <div class="item">
-                        <label for="zip">Search by Zip</label>
-                        <input id="zip" type="text" name="search-zipcode" placeholder='"12345"' required>
-                        <span class="helper-text">(Enter 5 digit Zip Code)</span>
-                    </div>
-                    <div class="item">
-                        <label for="distance">Distance of Search</label>
-                        <input id="distance" type="number" name="distance" value="50">
-                        <span class="helper-text">(Miles)</span>
-                    </div>
-                    <div class="item">
-                        <label for="max-results">Number of Results</label>
-                        <input id="max-results" type="number" name="max-results" value="10">
-                    </div>
-                    <div class="item hidden">
-                        <label for="type" class="hidden">Cat</label>
-                        <input id="type" class="animal-type" type="text" name="type" value="Cat">
-                    </div>
-                    <button id="search-submit" type="submit" class="banner-btn" name="Search" value="Search">Search <i class="fas fa-arrow-circle-right"></i></button>
+                    <fieldset name="cat-search">
+                        <legend class="hidden">Search for cats</legend>
+                        <div class="item">
+                            <label for="zip">Search by Zip</label>
+                            <input id="zip" type="text" name="search-zipcode" placeholder='"12345"' required>
+                            <span class="helper-text">(Enter 5 digit Zip Code)</span>
+                        </div>
+                        <div class="item">
+                            <label for="distance">Distance of Search</label>
+                            <input id="distance" type="number" name="distance" value="50">
+                            <span class="helper-text">(Miles)</span>
+                        </div>
+                        <div class="item">
+                            <label for="max-results">Number of Results</label>
+                            <input id="max-results" type="number" name="max-results" value="10">
+                        </div>
+                        <div class="item hidden">
+                            <label for="type" class="hidden">Cat</label>
+                            <input id="type" class="animal-type" type="text" name="type" value="Cat">
+                        </div>
+                        <button id="search-submit" type="submit" class="banner-btn" name="Search" value="Search">Search <i class="fas fa-arrow-circle-right"></i></button>    
+                    </fieldset>
                 </form>    
             </section>  
             <p id="js-error-message" class="error-message"></p>

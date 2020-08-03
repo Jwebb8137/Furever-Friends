@@ -23,21 +23,24 @@
                     <p>Volunteering your time and attention is one of the best ways to show your support!</p> 
                 </div>
                 <form id="shelter-form">
-                    <div class="item">
-                        <label for="zip">Search By Zip</label>
-                        <input id="zip" type="text" name="search-zipcode" placeholder='"12345"' required>
-                        <span class="helper-text">(Enter 5 digit Zip Code)</span>
-                    </div>
-                    <div class="item">
-                        <label for="distance">Distance of Search</label>
-                        <input id="distance" type="number" name="distance" value="50">
-                        <span class="helper-text">(Miles)</span>
-                    </div>
-                    <div class="item">
-                        <label for="max-results">Number of Results</label>
-                        <input id="max-results" type="number" name="max-results" value="10">
-                    </div>
-                    <button type="submit" class="banner-btn" name="Search" value="Search">Search <i class="fas fa-arrow-circle-right"></i></button>
+                    <fieldset name="shelter-search">
+                        <legend class="hidden">Search for shelters</legend>
+                        <div class="item">
+                            <label for="zip">Search By Zip</label>
+                            <input id="zip" type="text" name="search-zipcode" placeholder='"12345"' required>
+                            <span class="helper-text">(Enter 5 digit Zip Code)</span>
+                        </div>
+                        <div class="item">
+                            <label for="distance">Distance of Search</label>
+                            <input id="distance" type="number" name="distance" value="50">
+                            <span class="helper-text">(Miles)</span>
+                        </div>
+                        <div class="item">
+                            <label for="max-results">Number of Results</label>
+                            <input id="max-results" type="number" name="max-results" value="10">
+                        </div>
+                        <button type="submit" class="banner-btn" name="Search" value="Search">Search <i class="fas fa-arrow-circle-right"></i></button>    
+                    </fieldset>
                 </form>    
             </section>    
             <p id="js-error-message" class="error-message"></p>
