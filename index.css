@@ -354,7 +354,7 @@ a i {
 }
 
 .error-message {
-    color: red;
+    color: #000;
 }
 
 .hidden {
@@ -363,6 +363,12 @@ a i {
 
 
 /* ------------ Inputs ------------ */
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
 
 label, a, .item {
   display: block;

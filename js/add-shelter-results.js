@@ -43,7 +43,7 @@ function getMoreShelters(zip, distance, maxResults) {
   })
   .then(responseJson => addResults(responseJson))
   .catch(err => {
-    $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    $('#js-error-message').text(`Something went wrong: ${err.message} (try again later!)`);
   });
   page++;
 }

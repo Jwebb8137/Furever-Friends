@@ -40,7 +40,7 @@ function getShelters(zip, distance, maxResults) {
   })
   .then(responseJson => displayShelters(responseJson))
   .catch(err => {
-    $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    $('#js-error-message').text(`Something went wrong: ${err.message} (Check your zip code and try again!)`);
   });
 }
   

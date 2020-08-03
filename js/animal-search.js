@@ -52,7 +52,7 @@ function getAnimals(type, zip, distance, maxResults) {
   })
   .then(responseJson => displayResults(responseJson))
   .catch(err => {
-    $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    $('#js-error-message').text(`Something went wrong: ${err.message} (Check your zip code and try again!)`);
   });
 }
   
