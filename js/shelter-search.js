@@ -21,8 +21,9 @@ function getShelters(zip, distance, maxResults) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(function (resp) {
+    $('#js-error-message').addClass('hidden');
     $(".loader-container").removeClass('hidden');
-    // Return the response as JSON
+  // Return the response as JSON
     return resp.json();
   }).then(function (data) {
     // Return a second API call
@@ -35,13 +36,14 @@ function getShelters(zip, distance, maxResults) {
   })
   .then(response => {
     if (response.ok) {
-      return response.json();
+        return response.json();
     }
     throw new Error(response.statusText);
   })
   .then(responseJson => displayShelters(responseJson))
   .catch(err => {
-    $('#js-error-message').text(`Something went wrong: ${err.message} (Check your zip code and try again!)`);
+    $(".loader-container, #results").addClass('hidden');
+    $('#js-error-message').removeClass('hidden');
   });
 }
   

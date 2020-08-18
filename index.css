@@ -1,3 +1,10 @@
+.error-message {
+  background: white;
+  border: 2px solid #df6158;
+  color: #000;
+  padding: 15px;
+}
+
 .loader-container {
   background: #ffe9e9;
   height: 100vh;
@@ -202,7 +209,7 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
   margin: 0;
 }
 

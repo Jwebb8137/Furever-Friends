@@ -1,14 +1,15 @@
 fetch('https://gnews.io/api/v3/search?q="{pet of the week}"&image=required&mindate=2020-07-01&token=67e792384d757cf176559f869d647b25')
     .then(response => {
         if (response.ok) {
+        $('#js-error-message').addClass('hidden');
         return response.json();
         }
         throw new Error(response.statusText);
     })
     .then(responseJson => displayResults(responseJson))
     .catch(err => {
-        $('#js-error-message').text(`Something went wrong: ${err.message}`);
-});
+        $('#js-error-message').removeClass('hidden');
+  });
 
 function displayResults(responseJson) {
     for (let i = 0; i < responseJson.articles.length; i++) {

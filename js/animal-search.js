@@ -33,6 +33,7 @@ function getAnimals(type, zip, distance, maxResults) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(function (resp) {
+    $('#js-error-message').addClass('hidden');
     $(".loader-container").removeClass('hidden');
     // Return the response as JSON
     return resp.json();
@@ -53,12 +54,16 @@ function getAnimals(type, zip, distance, maxResults) {
   })
   .then(responseJson => displayResults(responseJson))
   .catch(err => {
-    $('#js-error-message').text(`Something went wrong: ${err.message} (Check your zip code and try again!)`);
+    $(".loader-container, #results").addClass('hidden');
+    $('#js-error-message').removeClass('hidden');
   });
 }
   
   function displayResults(responseJson) {
     $('.results-list').empty();
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $("#results-target").offset().top
+    }, 2500);
     for (let i = 0; i < responseJson.animals.length; i++){
 
       let petPhotoUrl = "media/logo.png";
@@ -99,12 +104,6 @@ function getAnimals(type, zip, distance, maxResults) {
       )};
     $('#results').removeClass('hidden');
 };  
-
-$("#search-submit").click(function() {
-  $([document.documentElement, document.body]).animate({
-      scrollTop: $("#results-target").offset().top
-  }, 2500);
-});
 
 $(watchCatForm);
 $(watchDogForm);
