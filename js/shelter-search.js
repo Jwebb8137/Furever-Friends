@@ -21,6 +21,7 @@ function getShelters(zip, distance, maxResults) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(function (resp) {
+    $(".loader-container").removeClass('hidden');
     // Return the response as JSON
     return resp.json();
   }).then(function (data) {
@@ -55,6 +56,7 @@ function displayShelters(responseJson) {
       (responseJson.organizations[i].address.address1 !== null) ? shelterAddress = responseJson.organizations[i].address.address1: shelterAddress;
       (responseJson.organizations[i].phone !== null) ? shelterPhone = responseJson.organizations[i].phone: shelterPhone;
 
+      $(".loader-container").addClass('hidden');
       $('.results-list').append(
       `<div class="item item-results">
           <li>

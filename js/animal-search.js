@@ -33,6 +33,7 @@ function getAnimals(type, zip, distance, maxResults) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(function (resp) {
+    $(".loader-container").removeClass('hidden');
     // Return the response as JSON
     return resp.json();
   }).then(function (data) {
@@ -78,6 +79,7 @@ function getAnimals(type, zip, distance, maxResults) {
       (responseJson.animals[i].contact.phone !== null) ? petPhone = responseJson.animals[i].contact.phone: petPhone;
       (responseJson.animals[i].url !== null) ? petUrl = responseJson.animals[i].url: petUrl;
       
+      $(".loader-container").addClass('hidden');
       $('.results-list').append(
         `<div class="item item-results">
           <li>
